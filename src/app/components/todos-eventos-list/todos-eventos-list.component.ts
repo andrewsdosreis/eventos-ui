@@ -69,7 +69,7 @@ export class TodosEventosListComponent implements OnInit {
     this.buildClasses(message.type);
     setTimeout(() => {
       this.message = undefined;
-    }, 3000);
+    }, 5000);
   }
 
   private buildClasses(type: string): void {

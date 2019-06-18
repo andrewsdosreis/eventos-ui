@@ -37,15 +37,11 @@ export class EventoNewComponent implements OnInit {
         this.eventoService.createOrUpdate(this.evento).subscribe((response: Evento) => {
             console.log('responseApi -->  ', response);
             this.evento = response;
-            this.showMessage({
-                type: 'success',
-                text: `Registered ${this.evento.titulo} successfully`
-            });
             this.router.navigate(['evento-list']);
         }, err => {
             this.showMessage({
                 type: 'error',
-                text: err['error']['errors'][0]
+                text: err.error.message
             });
         });
     }
@@ -67,7 +63,7 @@ export class EventoNewComponent implements OnInit {
         this.buildClasses(message.type);
         setTimeout(() => {
             this.message = undefined;
-        }, 3000);
+        }, 5000);
     }
 
     private buildClasses(type: string): void {

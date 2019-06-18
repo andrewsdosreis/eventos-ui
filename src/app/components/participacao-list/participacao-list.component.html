@@ -25,7 +25,7 @@
             <td>{{participacaoevento.evento.titulo}}</td>
             <td>{{participacaoevento.evento.descricao}}</td>
             <td>{{participacaoevento.evento.data | date:'dd/MM/yyyy'}}</td>
-            <td>{{participacaoevento.usuario.nome}}</td>
+            <td>{{participacaoevento.evento.organizador.nome}}</td>
             <td><button class="btn btn-success" (click)="detail(participacaoevento.id)">Detalhes</button></td>
           </tr>
         </table>
