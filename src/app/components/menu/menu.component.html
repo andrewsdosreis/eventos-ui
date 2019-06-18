@@ -1,0 +1,29 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-edit"></i>
+          <span>Eventos</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a [routerLink]="['/evento-list']">
+              <i class="fa fa-circle-o"></i>Meus Eventos</a>
+          </li>
+          <li>
+            <a [routerLink]="['/todos-eventos-list']">
+              <i class="fa fa-circle-o"></i>Eventos Disponíveis</a>
+          </li>
+          <li>
+            <a [routerLink]="['/participacao-list']">
+              <i class="fa fa-circle-o"></i>Minhas Participações</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</aside> 

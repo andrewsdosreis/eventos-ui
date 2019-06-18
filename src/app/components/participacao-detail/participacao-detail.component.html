@@ -1,0 +1,40 @@
+<div class="col-md-10" style="margin-left:0%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Evento {{participacaoEvento.evento.titulo}}</h3>
+    </div>
+    <form class="form-horizontal" #form="ngForm" (ngSubmit)="unsubscribe()" novalidate>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-body">
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <b>Ticket: </b>
+            <span>{{participacaoEvento.ticket}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Título: </b>
+            <span>{{participacaoEvento.evento.titulo}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Description: </b>
+            <span>{{participacaoEvento.evento.descricao}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Data: </b>
+            <span>{{participacaoEvento.evento.data | date:'dd/MM/yyyy'}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Organizador: </b>
+            <span>{{participacaoEvento.evento.organizador.nome}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="box-footer">
+        <button class="btn btn-primary pull-left" (click)="cancel()">Voltar</button>
+        <button type="submit" class="btn btn-danger pull-right">Cancelar Participação</button>
+      </div>
+    </form>
+  </div>
+</div>

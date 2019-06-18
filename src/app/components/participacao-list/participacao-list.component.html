@@ -1,0 +1,34 @@
+<div [ngClass]="classCss" role="alert" *ngIf="message">
+  <strong>{{ message.text }}</strong>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Minhas Participações</h3>
+      </div>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>Ticket</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Organizador</th>
+            <th style="width: 10px">&nbsp;</th>
+          </tr>
+          <tr *ngFor="let participacaoevento of listParticipacaoEvento">
+            <td>{{participacaoevento.ticket}}</td>
+            <td>{{participacaoevento.evento.titulo}}</td>
+            <td>{{participacaoevento.evento.descricao}}</td>
+            <td>{{participacaoevento.evento.data | date:'dd/MM/yyyy'}}</td>
+            <td>{{participacaoevento.usuario.nome}}</td>
+            <td><button class="btn btn-success" (click)="detail(participacaoevento.id)">Detalhes</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

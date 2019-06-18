@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Meus Eventos</h3>
+      </div>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-footer">
+        <button class="btn btn-success" (click)="add()">Novo</button>
+      </div>
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th style="width: 10px">&nbsp;</th>
+            <th style="width: 10px">&nbsp;</th>
+          </tr>
+          <tr *ngFor="let evento of listEvento">
+            <td>{{evento.titulo}}</td>
+            <td>{{evento.descricao}}</td>
+            <td>{{evento.data | date:'dd/MM/yyyy'}}</td>
+            <td><button class="btn btn-primary" (click)="edit(evento.id)">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="delete(evento.id)">Deletar</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

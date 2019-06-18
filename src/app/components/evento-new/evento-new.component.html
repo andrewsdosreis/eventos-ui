@@ -1,0 +1,43 @@
+<div class="col-md-10" style="margin-left:0%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Novo Evento</h3>
+    </div>
+    <form class="form-horizontal" #form="ngForm" (ngSubmit)="insert()" novalidate>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-body">
+        <div [ngClass]="getFormGroupClass(titulo.invalid, titulo.dirty)">
+          <label for="inputTitulo" class="col-sm-2 control-label">Titulo</label>
+          <div class="col-sm-10">
+            <input type="text" [(ngModel)]="evento.titulo" name="titulo" class="form-control" id="inputTitulo"
+              placeholder="Titulo" #titulo="ngModel" required>
+            <span class="help-block" *ngIf="titulo.invalid && titulo.dirty">Título is required</span>
+          </div>
+        </div>
+        <div [ngClass]="getFormGroupClass(descricao.invalid, descricao.dirty)">
+          <label for="inputDescricao" class="col-sm-2 control-label">Descrição</label>
+          <div class="col-sm-10">
+            <textarea [(ngModel)]="evento.descricao" name="descricao" rows="3" class="form-control" id="inputDescricao"
+              placeholder="Descricao..." #descricao="ngModel" required>
+                  </textarea>
+            <span class="help-block" *ngIf="descricao.invalid && descricao.dirty">Descrição is required</span>
+          </div>
+        </div>
+        <div [ngClass]="getFormGroupClass(data.invalid, data.dirty)">
+          <label for="inputData" class="col-sm-2 control-label">Data</label>
+          <div class="col-sm-10">
+            <input type="date" [(ngModel)]="evento.data" name="data" class="form-control" id="inputData" #data="ngModel"
+              required>
+            <span class="help-block" *ngIf="data.invalid && data.dirty">Data is required</span>
+          </div>
+        </div>
+      </div>
+      <div class="box-footer">
+          <button class="btn btn-danger pull-left" (click)="cancel()">Voltar</button>
+          <button type="submit" [disabled]="!form.valid" class="btn btn-success pull-right">Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>

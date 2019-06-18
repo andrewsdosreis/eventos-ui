@@ -1,0 +1,70 @@
+<div [ngClass]="classCss" role="alert" *ngIf="message">
+  <strong>{{ message.text }}</strong>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Todos os Eventos Disponíveis</h3>
+      </div>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="inputTitulo" class="col-sm-1 control-label">Título</label>
+          <div class="col-sm-4">
+            <input type="text" [(ngModel)]="eventoFilter.titulo" name="titulo" class="form-control" id="inputTitulo">
+          </div>
+          <label for="inputDataInicio" class="col-sm-1 control-label">Data Inicial</label>
+          <div class="col-sm-4">
+            <input type="date" [(ngModel)]="eventoFilter.dataInicio" name="dataInicio" class="form-control" id="inputDataInicio">
+          </div>
+        </div>
+      </div>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="inputDescricao" class="col-sm-1 control-label">Descrição</label>
+          <div class="col-sm-4">
+            <input type="text" [(ngModel)]="eventoFilter.descricao" name="descricao" class="form-control"
+              id="inputDescricao">
+          </div>
+          <label for="inputDataFim" class="col-sm-1 control-label">Data Final</label>
+          <div class="col-sm-4">
+            <input type="date" [(ngModel)]="eventoFilter.dataFim" name="dataFim" class="form-control" id="inputDataFim">
+          </div>
+        </div>
+      </div>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="inputOrganizadorNome" class="col-sm-1 control-label">Organizador</label>
+          <div class="col-sm-4">
+            <input type="text" [(ngModel)]="eventoFilter.organizadorNome" name="organizadorNome" class="form-control"
+              id="inputOrganizadorNome">
+          </div>
+        </div>
+      </div>      
+      <div class="box-footer">
+        <button class="btn btn-danger pull-left" (click)="cleanFilter()">Limpar Filtros</button>
+        <button style="margin-left: 10px" class="btn btn-primary pull-right" (click)="filter()">Pesquisar</button>
+      </div>
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Organizador</th>
+            <th style="width: 10px">&nbsp;</th>
+          </tr>
+          <tr *ngFor="let evento of listEvento">
+            <td>{{evento.titulo}}</td>
+            <td>{{evento.descricao}}</td>
+            <td>{{evento.data | date:'dd/MM/yyyy'}}</td>
+            <td>{{evento.organizador.nome}}</td>
+            <td><button class="btn btn-success" (click)="detail(evento.id)">Detalhes</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

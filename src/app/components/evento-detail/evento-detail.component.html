@@ -1,0 +1,36 @@
+<div class="col-md-10" style="margin-left:0%">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Evento {{evento.titulo}}</h3>
+    </div>
+    <form class="form-horizontal" #form="ngForm" (ngSubmit)="subscribe()" novalidate>
+      <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+      </div>
+      <div class="box-body">
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <b>Título: </b>
+            <span>{{evento.titulo}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Description: </b>
+            <span>{{evento.descricao}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Data: </b>
+            <span>{{evento.data | date:'dd/MM/yyyy'}}</span>
+          </li>
+          <li class="list-group-item">
+            <b>Organizador: </b>
+            <span>{{evento.organizador.nome}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="box-footer">
+        <button class="btn btn-danger pull-left" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-success pull-right">Confirmar Participação</button>
+      </div>
+    </form>
+  </div>
+</div>
