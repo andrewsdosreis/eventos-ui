@@ -4,7 +4,7 @@ import { Evento } from './evento.model';
 export class ParticipacaoEvento {
     constructor(
         public id: number,
-        public ticker: string,
+        public ticket: string,
         public usuario: Usuario,
         public evento: Evento
     ) { }
